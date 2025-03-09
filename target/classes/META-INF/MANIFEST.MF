@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Built-By: kajal
+Build-Jdk: 17.0.10
+Class-Path: json-20210307.jar httpclient-4.5.13.jar commons-logging-1.2.
+ jar commons-codec-1.11.jar httpcore-4.4.14.jar
+Main-Class: apimCliient.AuthenticationService
+Created-By: Maven Integration for Eclipse
+
