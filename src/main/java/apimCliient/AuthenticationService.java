@@ -47,18 +47,14 @@ public class AuthenticationService {
         String accessToken = generateCredential(username, password,CLIENT_REGISTRATION_URL, ACCESS_TOKEN_URL,payload);
         if (accessToken != null) {
             try {
-				APIDataRetriever.getApiIdbyCN(accessToken, cn,PUBLISHER_REST_API_URL,TENANT_DOMAIN);
-			} catch(ConnectException e) {
-				
-			}
-            catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				if(e instanceof ConnectException) {
-	            	System.err.println("Please check if server is running");
-	            }
-			}
-        }
+		     APIDataRetriever.getApiIdbyCN(accessToken, cn,PUBLISHER_REST_API_URL,TENANT_DOMAIN);
+		} 
+            catch (Exception | ConnectException e) {
+			e.printStackTrace();
+			if(e instanceof ConnectException) {
+	            	System.err.println("Please check if server is running");}
+	    }
+	}
     }
 
     private static Properties loadProperties() {
@@ -93,7 +89,6 @@ public class AuthenticationService {
     	            sc.init(null, trustAllCertificates, new java.security.SecureRandom());
     	            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
 
-    	            // Also disable hostname verification
     	            HostnameVerifier allHostsValid = (hostname, session) -> true;
     	            HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
     			}catch (NoSuchAlgorithmException | NullPointerException | KeyManagementException e) {
