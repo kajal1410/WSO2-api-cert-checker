@@ -23,22 +23,7 @@ import java.io.FileInputStream;
 
 public class AuthenticationService {
 	public static void main(String[] args) {
-		disableSSLVerification();
-//		try (Scanner sc = new Scanner(System.in)) {
-//            System.out.print("Enter Username: ");
-//            String username = sc.nextLine();
-//            System.out.print("Enter Password: ");
-//            String password = sc.nextLine();
-//            System.out.print("Enter CN to get list of APIs: ");
-//            String cn = sc.nextLine();
-//
-//            String accessToken = generateCredential(username, password);
-//            if (accessToken != null) {
-//                APIDataRetriever.getApiIdbyCN(accessToken, cn);
-//            }
-//        } catch (Exception e) {
-//            System.err.println("Error: " + e.getMessage());
-//        }
+		disableSSLVerification();	
 		// Load properties from the file
 		Properties properties = loadProperties();
         if (properties == null) {
@@ -88,8 +73,7 @@ public class AuthenticationService {
     }
 		
    
-		
-	public static void disableSSLVerification() {
+   public static void disableSSLVerification() {
     	//DISABL ECERTIFICATE VALIDATION:
     			try {
     	            // Disable SSL verification
@@ -120,13 +104,6 @@ public class AuthenticationService {
     }
 
 	public static String generateCredential(String username, String password, String CLIENT_REGISTRATION_URL, String ACCESS_TOKEN_URL,String payload) {
-//        String payload = "{\n" +
-//                "  \"callbackUrl\": \"www.google.lk\",\n" +
-//                "  \"clientName\": \"rest_api_publisher\",\n" +
-//                "  \"owner\": \"admin\",\n" +
-//                "  \"grantType\": \"client_credentials password refresh_token\",\n" +
-//                "  \"saasApp\": true\n" +
-//                "}";
 
         String base64Auth = Base64.getEncoder().encodeToString((username + ":" + password).getBytes());
 
