@@ -49,7 +49,7 @@ public class AuthenticationService {
             try {
 		     APIDataRetriever.getApiIdbyCN(accessToken, cn,PUBLISHER_REST_API_URL,TENANT_DOMAIN);
 		} 
-            catch (Exception | ConnectException e) {
+            catch (Exception e) {
 			e.printStackTrace();
 			if(e instanceof ConnectException) {
 	            	System.err.println("Please check if server is running");}
