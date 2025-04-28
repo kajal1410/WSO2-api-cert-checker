@@ -14,12 +14,11 @@ import org.json.JSONObject;
 
 public class APIDataRetriever {
 
-    // Propagate exception to the calling method if it occurs
     public static void getApiIdbyCN(String accessToken, String CN, String PUBLISHER_REST_API_URL, String TENANT_DOMAIN) throws Exception {
         // Retrieve all APIs
         List<RetriveApiResponse> apiList = retriveAllAPI(accessToken, PUBLISHER_REST_API_URL, TENANT_DOMAIN);
 
-        // Check if the API list is null or empty, and return early if true
+        // Check if the API list is null or empty
         if (apiList == null || apiList.isEmpty()) {
             System.err.println("No APIs found or an error occurred while fetching APIs.");
             return; // Stop further execution and don't proceed to the loop
@@ -36,7 +35,6 @@ public class APIDataRetriever {
         }
     }
 
-    // Method that could throw exceptions, so it should declare throws
     public static List<RetriveApiResponse> retriveAllAPI(String accessToken, String PUBLISHER_REST_API_URL, String TENANT_DOMAIN) throws Exception {
         List<RetriveApiResponse> apiList = new ArrayList<>();
 
